@@ -1,0 +1,26 @@
+# Default ignored files
+/shelf/
+/.idea/workspace.xml
+
+*.log
+
+*.ctxt
+
+.mtg.tmp/
+
+*.jar
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+hs_err_pid*
+
+
+out/
+*.idea/
+*ShoppingApp.idea/
+
+*.properties
