@@ -25,6 +25,16 @@ public class Login implements IMenu{
         exit: {
             while (true){
                 System.out.println("\nWelcome to the Salad-Bar");
+
+                System.out.println("" +
+                        "              ▄     \n" +
+                        "  ▐█▄  █▀██ ▄█ █    \n" +
+                        "  ▐  ▀█    █   █    \n" +
+                        " ███▄  █▄▄█▀██▀ ▄██ \n" +
+                        " █▀▀█████▄▄▄███▀  █ \n" +
+                        " █▌              ▄▌ \n" +
+                        "  ▀▀▀█▄▄▄▄▄▄▄▄█▀▀▀   ");
+
                 System.out.println("Login! - \t\t[1]");
                 System.out.println("Signup! - \t\t[2]");
                 System.out.println("Close Program - [x]");
