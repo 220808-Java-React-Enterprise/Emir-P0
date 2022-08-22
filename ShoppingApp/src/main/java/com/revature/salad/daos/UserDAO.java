@@ -18,7 +18,7 @@ public class UserDAO implements CrudeDAO<User>{
     public void save(User obj) {
 
         try(Connection con = ConnectionFactory.getInstance().getConnection()){
-            PreparedStatement ps = con.prepareStatement("INSERT INTO users (user_id, username, password, email, admin, address, state, zip, userstore) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+            PreparedStatement ps = con.prepareStatement("INSERT INTO users (user_id, username, password, email, admin, address, state, zip, restaurant_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             ps.setString(1, obj.getId());
             ps.setString(2, obj.getUserName());
             ps.setString(3, obj.getPassword());
@@ -84,7 +84,7 @@ public class UserDAO implements CrudeDAO<User>{
                     rs.getString("password"), rs.getString("email"),
                     rs.getBoolean("admin"), rs.getString("address"),
                     rs.getString("state"), rs.getString("zip"),
-                    rs.getString("userstore"));
+                    rs.getString("restaurant_id"));
 
         }catch(SQLException e){
             throw new InvalidSQLException("Error occurred saving to the database");
