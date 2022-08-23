@@ -34,25 +34,16 @@ public class ShopInventoryDAO implements CrudeDAO{
         return null;
     }
 
-    public ShopInventory updateAmount(String quant, String id){
+    public void updateAmount(ShopInventory obj){
         try (Connection con = ConnectionFactory.getInstance().getConnection()) {
 
             PreparedStatement ps = con.prepareStatement("UPDATE restaurant_inventory SET item_quantity = ? WHERE res_item_id = ?");
-            ps.setString(1, quant);
-            ps.setString(2, id);
-            ResultSet rs = ps.executeQuery();
-
-            if(rs.next()){
-
-                return null;
-            }
-
-
+            ps.setString(1, obj.getItemQuantity());
+            ps.setString(2, obj.getResItemId());
+            ps.executeUpdate();
         }catch(SQLException e){
             throw new InvalidSQLException("Error occurred connecting to database");
         }
-
-            return null;
     }
 
     //@Override

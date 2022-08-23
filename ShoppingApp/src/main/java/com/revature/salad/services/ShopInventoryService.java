@@ -17,5 +17,9 @@ public class ShopInventoryService {
         return shopInventoryDAO.getAllInventoryById(id);
     }
 
+    public void updateInventory(ShopInventory shopInventory){
+        shopInventoryDAO.updateAmount(shopInventory);
+    }
+
 
 }

@@ -23,6 +23,11 @@ public class ShopInventory {
         this.itemQuantity = itemQuantity;
     }
 
+    public ShopInventory(String resItemId, String itemQuantity) {
+        this.resItemId = resItemId;
+        this.itemQuantity = itemQuantity;
+    }
+
     //set get
 
     public String getItemId() {

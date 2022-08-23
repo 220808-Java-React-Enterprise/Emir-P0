@@ -33,13 +33,15 @@ public class AdminMenu implements IMenu{
         String item = "";
         String amount = "";
 
+        ShopInventory shopInventory;
+
         System.out.println("Welcome to the ADMIN menu " + user.getUserName());
 
         exit: {
             while(true){
                 aMenuExit: {
                     System.out.println("What would you like to do?\n");
-                    System.out.println("Restock inventory - \t\t  [1]");
+                    System.out.println("Restock inventory - \t\t\t[1]");
 
                     System.out.println("Shutdown - \t\t\t\t\t\t[x]");
 
@@ -84,8 +86,13 @@ public class AdminMenu implements IMenu{
                                 System.out.println("Enter: ");
                                 item = sc.nextLine();
                                 System.out.println("What would you like to change the amount to?");
-                                System.out.println("Entier: ");
+                                System.out.println("Enter: ");
                                 amount = sc.nextLine();
+
+                                shopInventory = new ShopInventory(item, amount);
+                                shopInventoryService.updateInventory(shopInventory);
+
+                                System.out.println("Item no." + shopInventory.getResItemId() + "Has bean updated to the amount: " + shopInventory.getItemQuantity());
 
                                 
 
