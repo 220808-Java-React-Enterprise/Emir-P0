@@ -47,7 +47,7 @@ public class UserDAO implements CrudeDAO<User>{
     }
 
     @Override
-    public User getById(String id) {
+    public User getAllById(String id) {
         return null;
     }
 

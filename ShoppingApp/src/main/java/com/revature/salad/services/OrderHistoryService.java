@@ -6,6 +6,8 @@ import com.revature.salad.models.User;
 import com.revature.salad.utils.custom_exceptions.InvalidSQLException;
 import com.revature.salad.utils.custom_exceptions.InvalidUserException;
 
+import java.util.List;
+
 public class OrderHistoryService {
 
     private final OrderHistoryDAO orderHistoryDAO;
@@ -18,10 +20,8 @@ public class OrderHistoryService {
         orderHistoryDAO.save(orderHistory);
     }
 
-    public OrderHistory history(String user_id){
-        OrderHistory orderHistory = orderHistoryDAO.getById(user_id);
-        if (orderHistory == null) throw new InvalidSQLException("\nOoppsies");
-        return orderHistory;
+    public List<OrderHistory> history(String user_id){
+        return orderHistoryDAO.getAllHistoryById(user_id);
     }
 
 }

@@ -29,7 +29,7 @@ public class InventoryDAO implements CrudeDAO<Inventory>{
     }
 
     @Override
-    public Inventory getById(String itemId) {
+    public Inventory getAllById(String itemId) {
         try (Connection con = ConnectionFactory.getInstance().getConnection()){
 
             PreparedStatement ps = con.prepareStatement("SELECT * FROM inventory WHERE item_id = ?");

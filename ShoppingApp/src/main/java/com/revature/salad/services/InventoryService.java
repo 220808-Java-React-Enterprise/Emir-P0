@@ -2,7 +2,6 @@ package com.revature.salad.services;
 
 import com.revature.salad.daos.InventoryDAO;
 import com.revature.salad.models.Inventory;
-import com.revature.salad.utils.custom_exceptions.InvalidInventoryException;
 
 public class InventoryService {
 
@@ -13,7 +12,7 @@ public class InventoryService {
     }
 
     public Inventory getProductById (String itemId){
-        return inventoryDAO.getById(itemId);
+        return inventoryDAO.getAllById(itemId);
     }
 
     /*

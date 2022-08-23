@@ -23,7 +23,7 @@ public class RestaurantDAO implements CrudeDAO<Restaurant>{
     }
 
     @Override
-    public Restaurant getById(String id) {
+    public Restaurant getAllById(String id) {
         return null;
     }
 

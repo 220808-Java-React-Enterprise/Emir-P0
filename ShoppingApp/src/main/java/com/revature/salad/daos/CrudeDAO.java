@@ -10,7 +10,7 @@ public interface CrudeDAO<T> {
     void save(T obj);
     void update(T obj);
     void delete(String id);
-    T getById(String id);
+    T getAllById(String id);
     List<T> getAll();
 
 }

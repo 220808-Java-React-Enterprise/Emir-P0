@@ -44,8 +44,13 @@ public class OrderHistoryDAO implements CrudeDAO<OrderHistory>{
     }
 
     @Override
-    public OrderHistory getById(String orderId) {
+    public OrderHistory getAllById(String id) {
+        return null;
+    }
 
+    //@Override
+    //public OrderHistory getAllById(String orderId) {
+        /*
         try (Connection con = ConnectionFactory.getInstance().getConnection()) {
             PreparedStatement ps = con.prepareStatement("SELECT * FROM orderhistory WHERE order_id = ?");
             ps.setString(1, orderId);
@@ -58,12 +63,35 @@ public class OrderHistoryDAO implements CrudeDAO<OrderHistory>{
             }
         }catch (SQLException e) {
             throw new InvalidSQLException("Error occurred saving to the database");
-        }
-        return null;
-    }
-
+        }*/
+   //     return null;
+   // }
         @Override
     public List<OrderHistory> getAll() {
         return null;
     }
+
+    //@Override
+    public List<OrderHistory> getAllHistoryById(String user_id){
+        List<OrderHistory> history = new ArrayList<>();
+
+        try (Connection con = ConnectionFactory.getInstance().getConnection()){
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM orderhistory WHERE user_id = ?");
+            ps.setString(1, user_id);
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next()){
+                OrderHistory oHisto = new OrderHistory(rs.getString("order_id"), rs.getString("salad_detail"),
+                        rs.getString("salad_price"), rs.getString("purchase_date"),
+                        rs.getString("user_id"), rs.getString("restaurant_id"));
+                history.add(oHisto);
+            }
+        }catch (SQLException e) {
+            throw new InvalidSQLException("An error occurred when trying to access the database.");
+        }
+        return history;
+    }
+
+
 }
+

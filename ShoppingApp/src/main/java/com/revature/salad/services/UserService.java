@@ -4,8 +4,6 @@ import com.revature.salad.daos.UserDAO;
 import com.revature.salad.models.User;
 import com.revature.salad.utils.custom_exceptions.InvalidUserException;
 
-import java.util.List;
-
 public class UserService {
 
     private final UserDAO userDAO;
@@ -14,9 +12,10 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    public void isValidUserName(String userName){
+    public boolean isValidUserName(String userName){
         if(!userName.matches("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$")) throw new
                 InvalidUserException("Invalid Username! Username should be minimum of 8 character and maximum of 20 characters long");
+        return false;
     }
 
     public void isValidPassword(String password){

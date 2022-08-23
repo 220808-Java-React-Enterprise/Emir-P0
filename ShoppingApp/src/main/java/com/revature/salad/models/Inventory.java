@@ -9,7 +9,7 @@ public class Inventory {
     //con
 
 
-    public Inventory() {
+    public Inventory(String res_item_id, String item_id, String restaurant_id, String item_quantity) {
     }
 
     public Inventory(String itemId, String itemName, String itemPrice) {

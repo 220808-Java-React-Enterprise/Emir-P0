@@ -2,10 +2,13 @@ package com.revature.salad.ui;
 
 import com.revature.salad.daos.InventoryDAO;
 import com.revature.salad.daos.OrderHistoryDAO;
+import com.revature.salad.daos.ShopInventoryDAO;
 import com.revature.salad.daos.UserDAO;
+import com.revature.salad.models.ShopInventory;
 import com.revature.salad.models.User;
 import com.revature.salad.services.InventoryService;
 import com.revature.salad.services.OrderHistoryService;
+import com.revature.salad.services.ShopInventoryService;
 import com.revature.salad.services.UserService;
 import com.revature.salad.utils.custom_exceptions.InvalidUserException;
 
@@ -91,7 +94,7 @@ public class Login implements IMenu{
 
                 try{
                     User user = userService.login(userName, password);
-                    if(user.getAdmin()) new AdminMenu(user, new UserService(new UserDAO())).start();
+                    if(user.getAdmin()) new AdminMenu(user, new ShopInventory(), new UserService(new UserDAO()), new ShopInventoryService(new ShopInventoryDAO())).start();
                     else new MainMenu(user, new UserService(new UserDAO()), new InventoryService(new InventoryDAO()), new OrderHistoryService(new OrderHistoryDAO())).start();
 
                     break exit;
